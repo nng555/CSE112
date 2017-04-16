@@ -1,0 +1,22 @@
+{
+  "name": "cse112",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "engines": {
+    "node": "4.4.7",
+    "npm": "4.5.0"
+  },
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nng555/CSE112.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nng555/CSE112/issues"
+  },
+  "homepage": "https://github.com/nng555/CSE112#readme"
+}
