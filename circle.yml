@@ -12,10 +12,10 @@ general:
 dependencies:
   pre:
     - npm install --global gulp-cli
-    - echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/.gcloud-service-key.json
-    - sed s/YOUR-API-KEY/$API_KEY/ ${HOME}/CSE112/myapp/api_key.py.sample > ${HOME}/CSE112/myapp/api_key.py
+#    - echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/.gcloud-service-key.json
+#    - sed s/YOUR-API-KEY/$API_KEY/ ${HOME}/CSE112/myapp/api_key.py.sample > ${HOME}/CSE112/myapp/api_key.py
     - gcloud --quiet components update app
-    - gcloud auth activate-service-account --key-file ${HOME}/.gcloud-service-key.json
+    - gcloud auth activate-service-account --key-file ${HOME}/.gcloud-key-file.json
     - gcloud config set project $GCLOUD_PROJECT
 
 test:
