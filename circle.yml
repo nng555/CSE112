@@ -28,4 +28,4 @@ deployment:
   production:
     branch: master
     commands:
-      - ~/google-cloud-sdk/bin/gcloud --quiet preview app deploy app.yaml --version $GCLOUD_VERSION --promote
+      - ~/google-cloud-sdk/bin/gcloud --quiet app deploy app.yaml --version $GCLOUD_VERSION --promote
