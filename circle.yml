@@ -24,12 +24,6 @@ dependencies:
     - ~/google-cloud-sdk/bin/gcloud config set project $GCLOUD_PROJECT
     - pip install flake8
 
-test:
-  override:
-    - flake8:
-        files:
-          - "**/*.py"
-
 deployment:
   production:
     branch: master
