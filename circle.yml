@@ -3,7 +3,7 @@ machine:
     version: 4.8.2
   environment:
     # Replace this with your project ID
-    GCLOUD_PROJECT: "protean-bus-164917"
+    GCLOUD_PROJECT: "cse112shinypigeons"
 
 general:
   build_dir: myapp
@@ -11,10 +11,10 @@ general:
 dependencies:
   pre:
     - npm install --global gulp-cli
-    - echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
+    - echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/.gcloud-service-key.json
     - sed s/YOUR-API-KEY/$API_KEY/ ${HOME}/CSE112/myapp/api_key.py.sample > ${HOME}/CSE112/myapp/api_key.py
     - gcloud --quiet components update app
-    - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+    - gcloud auth activate-service-account --key-file ${HOME}/.gcloud-service-key.json
     - gcloud config set project $GCLOUD_PROJECT
 
 test:
