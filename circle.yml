@@ -25,4 +25,4 @@ deployment:
   staging:
     branch: master
     commands:
-      - gcloud -q app deploy ${HOME}/TestRepo/myapp/app.yml --promote --version=1
+      - gcloud -q app deploy ${HOME}/CSE112/myapp/app.yml --promote --version=1
