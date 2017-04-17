@@ -4,6 +4,7 @@ machine:
   environment:
     # Replace this with your project ID
     GCLOUD_PROJECT: "cse112shinypigeons"
+    GCLOUD_SERVICE_KEY: ".gcloud-key-file.json"
 
 general:
   build_dir: myapp
