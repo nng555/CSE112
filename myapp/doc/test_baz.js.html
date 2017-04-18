@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>test/baz.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,25 +29,48 @@
 
 <div id="main">
     
+    <h1 class="page-title">test/baz.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** Testing for baz string equality
+ * @module test/baz
+ */
 
 
+process.env.NODE_ENV = 'test';
 
+var baz = require('../static/js/baz');
+var assert = require('assert');
 
+/**
+ * Tests if the string 'baz' will return true
+ * @name bazTrue
+ */
+describe('baz', function() {
+    it('should return true when baz is passed in', function() {
+        assert.equal(true, baz.isBaz('baz'));
+    });
+});
 
-
-
-
-
-    
-
-
-
+/**
+ * Tests if the string 'foo' will return false
+ * @name bazFalse
+ */
+describe('baz', function() {
+    it('should return true when baz is passed in', function() {
+        assert.equal(false, baz.isBaz('foo'));
+    });
+});
+</code></pre>
+        </article>
+    </section>
 
 
 

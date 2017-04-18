@@ -4,7 +4,7 @@
     "dictionaries": ["jsdoc"]
   },
   "source": {
-    "include": ["routes", "static/js"],
+    "include": ["routes", "static/js", "test"],
     "includePattern": ".js$",
     "excludePattern": "(node_modules/|docs)"
   },

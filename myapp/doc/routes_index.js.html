@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>routes/index.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,25 +29,35 @@
 
 <div id="main">
     
+    <h1 class="page-title">routes/index.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** Express router providing index related routes
+ * @module routes/index
+ */
 
+var express = require('express');
+var router = express.Router();
 
+/**
+ * Route serving index page
+ * @name get/
+ */
+ router.get('/', function(req, res, next) {
+  res.render('index');
+});
 
-
-
-
-
-
-
-    
-
-
-
+module.exports = router;
+</code></pre>
+        </article>
+    </section>
 
 
 
