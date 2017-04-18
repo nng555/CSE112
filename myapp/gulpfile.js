@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
    jshint = require('gulp-jshint'),
     apidoc = require('gulp-apidoc'),
-    mocha = require('gulp-mocha');
+    mocha = require('gulp-mocha'),
+    jsdoc = require('gulp-jsdoc3');
 
 /**
 * Lint Checker
@@ -22,11 +23,10 @@ gulp.task('mocha', function() {
 /**
 * Run documentation generator
 */
-gulp.task('apidoc', function(done){
-   apidoc({
-      src: "routes/",
-      dest: "doc/"
-   }, done);
+gulp.task('doc', function (cb) {
+  var config = require('./jsdoc.json');
+  gulp.src([], {read: false})
+    .pipe(jsdoc(config, cb))
 });
 
-gulp.task('default', ['lint', 'mocha', 'apidoc']);
+gulp.task('default', ['lint', 'mocha', 'doc']);
