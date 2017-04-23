@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 // var static_dir = require('serve-static');
+var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 
@@ -18,9 +19,33 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'static')));
+
+var db = mongoose.connection;
+mongoose.connect('mongodb://localhost/test');
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("Mongo is connected");
+});
+
+var Schema = mongoose.Schema;
+var contactSchema = new Schema({
+  Name : String
+});
+
+var contact = mongoose.model('Contact', contactSchema);
+
+app.post('/contacts', function(req, res) {
+  new contact({
+    Name : req.body.name
+  }).save(function (err, data) {
+    if (err) console.log(err);
+    else console.log('Saved : ', data );
+  });
+});
 
 app.use('/', index);
 
@@ -42,4 +67,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+module.exports = contact;
 module.exports = app;
