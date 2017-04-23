@@ -4,9 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-// var static_dir = require('serve-static');
 var mongoose = require('mongoose');
-
+var contact = require('./routes/contacts');
 var index = require('./routes/index');
 
 var app = express();
@@ -45,6 +44,10 @@ app.post('/contacts', function(req, res) {
     if (err) console.log(err);
     else console.log('Saved : ', data );
   });
+});
+
+app.get('/contacts', function(req, res) {
+  
 });
 
 app.use('/', index);
