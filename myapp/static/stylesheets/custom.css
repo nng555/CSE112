@@ -1,0 +1,102 @@
+.container {
+    background-color: white;
+}
+
+.form-control {
+    border: none;
+    box-shadow: none;
+}
+
+.input-lg {
+    border-radius: 0px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+input#sliding-border-1.form-control.input-lg {
+    padding-left: 0px;
+}
+
+input#sliding-border-2.form-control {
+    padding-left: 0px;
+}
+
+input#sliding-border-3.form-control {
+    padding-left: 0px;
+}
+
+.modal-header {
+    text-align: center;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.border-under-1{
+    color:blue;
+    position:relative;
+    z-index:1;
+    border-bottom: 3px lightgray solid;
+    width: 100%;
+}
+
+.border-under-1 .border-over-1 {
+    position:absolute;
+    z-index:2;
+    border-bottom: 3px #337AB7 solid;
+    text-decoration: none;
+    width: 0px;
+    transition: 0.5s ease;
+}
+
+.border-over-1.clicked {
+    border-bottom: 3px solid #337AB7;
+    width: 100%;
+}
+
+.border-under-2{
+    color:blue;
+    position:relative;
+    z-index:1;
+    border-bottom: 3px lightgray solid;
+    width: 100%;
+}
+
+.border-under-2 .border-over-2 {
+    position:absolute;
+    z-index:2;
+    border-bottom: 3px #337AB7 solid;
+    text-decoration: none;
+    width: 0px;
+    transition: 0.5s ease;
+}
+
+.border-over-2.clicked {
+    border-bottom: 3px solid #337AB7;
+    width: 100%;
+}
+
+.border-under-3{
+    color:blue;
+    position:relative;
+    z-index:1;
+    border-bottom: 3px lightgray solid;
+    width: 100%;
+}
+
+.border-under-3 .border-over-3 {
+    position:absolute;
+    z-index:2;
+    border-bottom: 3px #337AB7 solid;
+    text-decoration: none;
+    width: 0px;
+    transition: 0.5s ease;
+}
+
+.border-over-3.clicked {
+    border-bottom: 3px solid #337AB7;
+    width: 100%;
+}
