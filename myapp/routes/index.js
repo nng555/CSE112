@@ -29,22 +29,22 @@ db.once('open', function() {
   console.log("Connected");
 });
 
-var Schema = mongoose.Schema;
-var contactSchema = new Schema({
-  Name : String
-});
-
-var contact = mongoose.model('Contact', contactSchema);
-
-router.post('/', function(req, res) {
-  new contact({
-    Name : req.body.name
-  }).save(function (err, data) {
-    if (err) console.log(err);
-    else console.log('Saved : ', data );
-  });
-  res.redirect('/');
-});
+// var Schema = mongoose.Schema;
+// var contactSchema = new Schema({
+//   Name : String
+// });
+//
+// var contact = mongoose.model('Contact', contactSchema);
+//
+// router.post('/contacts', function(req, res) {
+//   new contact({
+//     Name : req.body.name
+//   }).save(function (err, data) {
+//     if (err) console.log(err);
+//     else console.log('Saved : ', data );
+//   });
+//   res.redirect('/');
+// });
 
 /*
 router.get('/contacts', function(req, res) {
@@ -62,5 +62,5 @@ router.get('/contacts', function(req, res) {
 //   else console.log('Saved : ', data );
 // });
 
-module.exports = contact;
+// module.exports = contact;
 module.exports = router;

@@ -1,13 +1,11 @@
 const defaultMaxLength = 15;
 const defaultInvalidChars = "1234567890";
 
-
 //Formatting output message: abc => a, b, c
 function insertChr(str,chr) {
   chr = chr || ', '; //=> default is space
   return str.replace(/(.(?!$))/g,'$1'+chr);
 }
-
 
 function submitContact() {
   if(isValidContactName()) {
@@ -28,7 +26,7 @@ function post(url, params, next) {
   //Send the proper header information along with the request
   http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-  http.onreadystatechange = function() {//Call a function when the state changes.
+  http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
         next();
       }
@@ -67,7 +65,7 @@ function isValidContactName() {
 }
 
 function formatContactName() {
-  if (typeof(Storage) !== "undefined") {
+  if (typeof(Storage) == "undefined") {
       return;
   }
 
@@ -84,7 +82,7 @@ function formatContactName() {
 function getFormatOptions(formatChars, formatNum) {
   return formatOptions = {
     'invalidChars': formatChars,
-    'formatNum'   : formatNum
+    'maxLength'   : formatNum
   };
 }
 

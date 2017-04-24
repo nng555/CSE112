@@ -28,7 +28,7 @@
           <span class="input-group-btn"><button type="button" onclick="submitContact()" class="btn btn-lg btn-primary">Add</button></span>
         </div>
       </form>
-      <form name="formatForm" class="col-md-12 center-block" onsubmit="return formatContactName()">
+      <form name="formatForm" class="col-md-12 center-block">
         <div class="form-group">
           <button type="button" class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#contactmodal">Change Contact Format</button>
           <div class="modal fade" id="contactmodal">
@@ -42,16 +42,16 @@
                   </div>
                   <div class="modal-body">
                       <div class="form-group">
-                        <label>Not Allowing Characters</label>
-                        <input name="inputChar" type="text" class="form-control" placeholder="Enter characters without space">
+                        <label>Characters that are not allowed</label>
+                        <input name="inputChar" type="text" class="form-control" placeholder="Default: 1234567890">
                       </div>
                       <div class="form-group">
-                        <label>Maximum Name Length</label>
-                        <input name="inputNum" type="number" class="form-control" placeholder="Enter maximum length for contact name">
+                        <label>Maximum name length</label>
+                        <input name="inputNum" type="number" class="form-control" placeholder="Default: 15 characters">
                       </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="formatContactName()">Save changes</button>
                   </div>
                 </div>
               </div>
@@ -60,3 +60,5 @@
       </form>
     </div>
   </div>
+</body>
+</html>
