@@ -2,7 +2,7 @@ const defaultMaxLength = 15;
 const defaultInvalidChars = "1234567890";
 
 function setup() {
-  
+
 }
 
 //Formatting output message: abc => a, b, c
@@ -26,9 +26,6 @@ function submitContact() {
 function post(url, params, next) {
   var http = new XMLHttpRequest();
   http.open("POST", url, true);
-
-  //Send the proper header information along with the request
-  http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
