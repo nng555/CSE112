@@ -13,8 +13,9 @@ function insertChr(str,chr) {
 
 function submitContact() {
   if(isValidContactName()) {
+    const settings = getCurrentSettings();
     const cName = document.forms["nameForm"]["name"].value;
-    const params = { "name" : cName };
+    const params = { "name" : cName, "config" : settings };
     post("contacts/",  params, function() {
       alert("Contact successfully added");
     });
@@ -38,9 +39,27 @@ function post(url, json, next) {
 }
 
 function isValidContactName() {
+  const cName = document.forms["nameForm"]["name"].value;
+  const settings = getCurrentSettings();
+
+  if(cName.length > settings.maxLength){
+  	alert("Contact Name cannot be longer than " + settings.maxLength + " characters. Please try again!");
+  	return false;
+  }
+  for(var i = 0; i < settings.invalidChars.length; i++){
+  	var char = settings.invalidChars.charAt(i);
+  	var bool_check = cName.includes(char);
+  	if(bool_check) {
+  		alert("Contact Name cannot be including: '" +  insertChr(settings.invalidChars) + "' Please try again!");
+      return false;
+  	}
+  }
+  return true;
+}
+
+function getCurrentSettings() {
   var maxLength = defaultMaxLength;
   var invalidChars = defaultInvalidChars;
-
   if (typeof(Storage) !== "undefined") {
     if(localStorage.maxLength) {
       maxLength = parseInt(localStorage.maxLength);
@@ -49,22 +68,7 @@ function isValidContactName() {
       invalidChars = localStorage.invalidChars;
     }
   }
-
-  const cName = document.forms["nameForm"]["name"].value;
-
-  if(cName.length > maxLength){
-  	alert("Contact Name cannot be longer than " + maxLength + " characters. Please try again!");
-  	return false;
-  }
-  for(var i = 0; i < invalidChars.length; i++){
-  	var char = invalidChars.charAt(i);
-  	var bool_check = cName.includes(char);
-  	if(bool_check) {
-  		alert("Contact Name cannot be including: '" +  insertChr(invalidChars) + "' Please try again!");
-      return false;
-  	}
-  }
-  return true;
+  return getFormatOptions(invalidChars, maxLength)
 }
 
 function formatContactName() {
