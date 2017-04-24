@@ -8,6 +8,7 @@ contact.post('/', function(req, res) {
   console.log(req.body);
   console.log(req.body.name);
   var newContact = new Contact({ name: req.body.name });
+  console.log(newContact);
 
   newContact.save(function (err) {
     if(err) {
