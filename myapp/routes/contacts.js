@@ -6,8 +6,11 @@ var contact = express.Router();
 
 contact.post('/', function(req, res) {
   console.log(req.body);
-  console.log(req.body.name);
-  var newContact = new Contact({ name: req.body.name });
+  var config = {
+    invalidChars: req.body.config.invalidChars,
+    maxLength   : parseInt(req.body.config.maxLength)
+  };
+  var newContact = new Contact({ name: req.body.name, config: config });
   console.log(newContact);
 
   newContact.save(function (err) {
