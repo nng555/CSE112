@@ -1,18 +1,60 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BAZ OR NOT</title>
+    <title>Add Contact Name</title>
+    <!--META-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--CSS-->
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!--TEST-->
     <script src='/js/baz.js'></script>
   </head>
   <body>
-    <input id="bazInput" type="text" placeholder="Text here" required>
-    <button class="btn" onclick="submitBazForm()">Submit</button>
-    <span id="bazResult"></span>
-
-    <form action="/" method="POST">
-      <input id="contactName" type="text" name="name" placeholder="Test" required>
-      <input type="submit"</input>
-    </form>
-  </body>
-</html>
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h1 class="text-center" class="login-color">Add Contact Name</h1>
+    </div>
+    <div class="modal-body">
+      <form name="nameForm" class="col-md-12 center-block" action="/" onsubmit="return isValidContactName()" method="post">
+        <div class="form-group input-group">
+          <input type="text" class="form-control input-lg text-center" name="name" placeholder="Please enter contact name" required>
+          <span class="input-group-btn"><input type="submit" class="btn btn-lg btn-primary">Add</button></span>
+        </div>
+      </form>
+      <form name="formatForm" class="col-md-12 center-block" onsubmit="return formatContactName()">
+        <div class="form-group">
+          <button type="button" class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#contactmodal">Change Contact Format</button>
+            <div class="modal fade" id="contactmodal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h1 class="modal-title" id="exampleModalLongTitle">Format Contact Name</h5>
+                  </div>
+                  <div class="modal-body">
+                      <div class="form-group">
+                        <label>Not Allowing Characters</label>
+                        <input name="inputChar" type="text" class="form-control" placeholder="Enter characters without space">
+                      </div>
+                      <div class="form-group">
+                        <label>Maximum Name Length</label>
+                        <input name="inputNum" type="number" class="form-control" placeholder="Enter maximum length for contact name">
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>

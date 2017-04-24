@@ -5,6 +5,7 @@
 var express = require('express');
 var router = express.Router();
 
+
 /**
  * Route serving index page
  * @name get/
@@ -42,7 +43,13 @@ router.post('/', function(req, res) {
     if (err) console.log(err);
     else console.log('Saved : ', data );
   });
+  res.redirect('/');
 });
+
+/*
+router.get('/contacts', function(req, res) {
+   res.render('contacts');
+});*/
 
 // var temp = new contact({
 //   firstName : 'Alan',
