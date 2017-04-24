@@ -10,7 +10,7 @@ function insertChr(str,chr) {
 function submitContact() {
   if(isValidContactName()) {
     const cName = document.forms["nameForm"]["name"].value;
-    const params = "name="+ cName;
+    const params = "name="+ cName   ;
     post("contacts/",  params, function() {
       alert("Contact successfully added");
     });
@@ -28,9 +28,9 @@ function post(url, params, next) {
 
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-        next();
+        alert("Contact successfully added");
       }
-  }
+  };
   http.send(params);
 }
 
