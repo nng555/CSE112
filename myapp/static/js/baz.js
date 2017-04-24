@@ -1,6 +1,10 @@
 const defaultMaxLength = 15;
 const defaultInvalidChars = "1234567890";
 
+function setup() {
+  
+}
+
 //Formatting output message: abc => a, b, c
 function insertChr(str,chr) {
   chr = chr || ', '; //=> default is space
@@ -66,7 +70,8 @@ function isValidContactName() {
 
 function formatContactName() {
   if (typeof(Storage) == "undefined") {
-      return;
+    alert("Configuration save failed");
+    return;
   }
 
 	const formatChars = document.forms["formatForm"]["inputChar"].value;
@@ -77,6 +82,7 @@ function formatContactName() {
   for(var opt in formatOptions) {
     localStorage.setItem(opt, formatOptions[opt]);
   }
+  alert("Configuration saved succesfully");
 }
 
 function getFormatOptions(formatChars, formatNum) {

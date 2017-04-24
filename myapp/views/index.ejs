@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>IsValidContactName</title>
+  <title>isValidContactName</title>
   <!--META-->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,32 +12,42 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <!--CSS-->
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <!-- FONT AWESOME -->
+  <script src="https://use.fontawesome.com/e8de10cdf8.js"></script>
   <!--TEST-->
   <script src='/js/baz.js'></script>
+  <!-- FONT   -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
 </head>
 
-<body>
-  <div class="modal-dialog">
+<body onload="setup()">
+  <nav class="navbar">
+    <h1>Shiny Pidgeons</h1>
+  </nav>
+  <div class="modal-dialog container">
     <div class="modal-header">
-      <h1 class="text-center" class="login-color">IsValidContactName</h1>
+      <h2 class="text-center dark-font">isValidContactName</h1>
     </div>
     <div class="modal-body">
       <form name="nameForm" class="col-md-12 center-block">
-        <div class="form-group input-group">
-          <input type="text" class="form-control input-lg text-center" name="name" placeholder="Please enter contact name" required>
-          <span class="input-group-btn"><button type="button" onclick="submitContact()" class="btn btn-lg btn-primary">Add</button></span>
-        </div>
+        <input type="text" class="form-control input-lg text-center" name="name" placeholder="Please enter contact name" required>
+        <button id="submit" type="button" onclick="submitContact()" class="btn btn-block btn-lg btn-primary">
+          <i class="fa fa-sign-in" aria-hidden="true"></i> Submit
+        </button>
       </form>
       <form name="formatForm" class="col-md-12 center-block">
         <div class="form-group">
-          <button type="button" class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#contactmodal">Change Contact Format</button>
+          <button id="change-format" type="button" class="btn btn-block btn-lg btn-info" data-toggle="modal" data-target="#contactmodal">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            Change Contact Format
+          </button>
           <div class="modal fade" id="contactmodal">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
-                    </button>
+                  </button>
                   <h1 class="modal-title" id="exampleModalLongTitle">Format Contact Name</h5>
                   </div>
                   <div class="modal-body">
@@ -51,13 +61,26 @@
                       </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="formatContactName()">Save changes</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="formatContactName()">
+                      <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                      Save changes
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
         </div>
       </form>
+    </div>
+  </div>
+  <footer class="navbar navbar-fixed-bottom">
+    <div onclick="location.href='https://shinypigeons.slack.com/';" style="cursor:pointer;">
+      <i class="fa fa-slack" aria-hidden="true"></i>
+      Slack
+    </div>
+    <div onclick="location.href='https://github.com/nng555/CSE112';" style="cursor:pointer;">
+      <i class="fa fa-github" aria-hidden="true"></i>
+      Github
     </div>
   </div>
 </body>
