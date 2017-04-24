@@ -5,8 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var contact = require('./routes/contacts');
-var index = require('./routes/index');
+var contactRouter = require('./routes/contacts.js');
+var indexRouter = require('./routes/index.js');
+var db = require('./db.js');
 
 var app = express();
 
@@ -22,36 +23,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'static')));
 
-var db = mongoose.connection;
-mongoose.connect('mongodb://localhost/test');
-
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("Mongo is connected");
-});
-
-var Schema = mongoose.Schema;
-var contactSchema = new Schema({
-  Name : String
-});
-
-var contact = mongoose.model('Contact', contactSchema);
-
-app.post('/contacts', function(req, res) {
-  new contact({
-    Name : req.body.name
-  }).save(function (err, data) {
-    if (err) console.log(err);
-    else console.log('Saved : ', data );
-    res.end();
-  });
-});
-
-app.get('/contacts', function(req, res) {
-
-});
-
-app.use('/', index);
+// routes
+app.use('/', indexRouter);
+app.use('/contacts', contactRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -71,5 +45,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = contact;
 module.exports = app;
