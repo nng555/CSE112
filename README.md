@@ -2,10 +2,10 @@
 
 <b>Setup Instructions</b>
 1. Git clone the repository onto the local machine.
-2. Install npm and Node.js.
-3. Change directory to "myapp" and run "npm install".
+2. Install npm, Node.js, and MongoDB. If developing on Windows, make sure these are added to the PATH environment variable.
+3. Run "npm install" in the "myapp" directory.
 4. If developing on Windows, set ""scripts" : { "start": " in package.json to "SET NODE_ENV=dev & node ./bin/www".
-5. Run "npm start".
+5. Run "npm start" in the "myapp" directory.
 6. Open "localhost:3000" in a browser to see the app.
 
 <b>Vagrant Instructions</b>
