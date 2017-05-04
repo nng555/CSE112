@@ -1,11 +1,13 @@
+/** Methods for handling the contact information
+ * @module js/contact
+ */
+
 const defaultMaxLength = 15;
 const defaultInvalidChars = "1234567890";
 
-function setup() {
-
-}
-
-//Formatting output message: abc => a, b, c
+/**
+ * Formatting output message: abc => a, b, c
+ */
 function insertChr(str,chr) {
   chr = chr || ', '; //=> default is space
   return str.replace(/(.(?!$))/g,'$1'+chr);

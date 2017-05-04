@@ -1,3 +1,8 @@
+/**
+ * Establish express app engine
+ * @module app
+ */
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -23,12 +28,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'static')));
 
-// routes
+/**
+ * Route '/' through the modeul routes/index,
+ * and '/contacts' through routes/contact
+ * @name route/
+ */
 app.use('/', indexRouter);
 app.use('/contacts', contactRouter);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
+/**
+ * On 404 error, forward to error handler
+ * @name err/
+ */
+ app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>test/baz - Documentation</title>
+    <title>routes/contacts.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,260 +29,60 @@
 
 <div id="main">
     
-    <h1 class="page-title">test/baz</h1>
+    <h1 class="page-title">routes/contacts.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
-    
-        
-            
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Testing for baz string equality</p></div>
-        
-
-        
-            
-<div class="section-method">
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="test_Contact.js.html">test/Contact.js</a>, <a href="test_Contact.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<div class="section-members">
-<h4 class="name" id="~testFalse"><span class="type-signature">(inner) </span>testFalse<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>Tests if the string 'foo' will return false</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="test_Contact.js.html">test/Contact.js</a>, <a href="test_Contact.js.html#line21">line 21</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-</div>
-
-        
-            
-<div class="section-members">
-<h4 class="name" id="~testTrue"><span class="type-signature">(inner) </span>testTrue<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>Tests if the string 'baz' will return true</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** Express router providing contact related routes
+ * @module routes/contact
+ */
 
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="test_Contact.js.html">test/Contact.js</a>, <a href="test_Contact.js.html#line11">line 11</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
+var express = require('express');
+var Contact = require('../models/Contact')
+var db = require('../db');
 
+var contact = express.Router();
 
+/**
+ * On post request to contact page, create new contact
+ * @name post/
+ */
+contact.post('/', function(req, res) {
+  console.log(req.body);
 
+  // Parse the config and name
+  var config = {
+    invalidChars: req.body.config.invalidChars,
+    maxLength   : parseInt(req.body.config.maxLength)
+  };
+  var newContact = new Contact({ name: req.body.name, config: config });
+  console.log(newContact);
 
-</div>
+  // save the new contact into the database
+  newContact.save(function (err) {
+    if(err) {
+      console.log(err);
+      return;
+    }
+    console.log("Success");
+    res.end();
+  });
+});
 
-        
-    
-
-    
+contact.get('/', function(req, res) {
 
-    
-
-    
-</article>
+});
 
-</section>
+module.exports = contact;
+</code></pre>
+        </article>
+    </section>
 
 
 

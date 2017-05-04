@@ -1,3 +1,9 @@
+/**
+ * Set up gulp modules including linting, testing, and documentation
+ * generation
+ * @module gulp
+ */
+
 var gulp = require('gulp'),
    jshint = require('gulp-jshint'),
     apidoc = require('gulp-apidoc'),

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>test/baz - Documentation</title>
+    <title>db.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,260 +29,40 @@
 
 <div id="main">
     
-    <h1 class="page-title">test/baz</h1>
+    <h1 class="page-title">db.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
-    
-        
-            
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Testing for baz string equality</p></div>
-        
-
-        
-            
-<div class="section-method">
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="test_Contact.js.html">test/Contact.js</a>, <a href="test_Contact.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<div class="section-members">
-<h4 class="name" id="~testFalse"><span class="type-signature">(inner) </span>testFalse<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>Tests if the string 'foo' will return false</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="test_Contact.js.html">test/Contact.js</a>, <a href="test_Contact.js.html#line21">line 21</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-</div>
-
-        
-            
-<div class="section-members">
-<h4 class="name" id="~testTrue"><span class="type-signature">(inner) </span>testTrue<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>Tests if the string 'baz' will return true</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Establish mongo connection to db
+ * @module db
+ */
 
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="test_Contact.js.html">test/Contact.js</a>, <a href="test_Contact.js.html#line11">line 11</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
+var mongoose = require('mongoose');
+var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
 
+                replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };
 
-</div>
+mongoose.Promise = global.Promise;
+var db = mongoose.connection;
+mongoose.connect('mongodb://admin:shinypigeon3@ds113841.mlab.com:13841/shinypigeon', options);
 
-        
-    
-
-    
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("Mongo is connected");
+});
 
-    
-
-    
-</article>
 
-</section>
+module.exports = db;
+</code></pre>
+        </article>
+    </section>
 
 
 

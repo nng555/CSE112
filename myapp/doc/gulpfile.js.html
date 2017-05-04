@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>test/baz - Documentation</title>
+    <title>gulpfile.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,260 +29,57 @@
 
 <div id="main">
     
-    <h1 class="page-title">test/baz</h1>
-    
-
-    
-
-
-
-
-<section>
-
-<header>
-    
-        
-            
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Testing for baz string equality</p></div>
-        
-
-        
-            
-<div class="section-method">
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="test_Contact.js.html">test/Contact.js</a>, <a href="test_Contact.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<div class="section-members">
-<h4 class="name" id="~testFalse"><span class="type-signature">(inner) </span>testFalse<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>Tests if the string 'foo' will return false</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="test_Contact.js.html">test/Contact.js</a>, <a href="test_Contact.js.html#line21">line 21</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-</div>
-
-        
-            
-<div class="section-members">
-<h4 class="name" id="~testTrue"><span class="type-signature">(inner) </span>testTrue<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>Tests if the string 'baz' will return true</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="test_Contact.js.html">test/Contact.js</a>, <a href="test_Contact.js.html#line11">line 11</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-</div>
-
-        
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <h1 class="page-title">gulpfile.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Set up gulp modules including linting, testing, and documentation
+ * generation
+ * @module gulp
+ */
+
+var gulp = require('gulp'),
+   jshint = require('gulp-jshint'),
+    apidoc = require('gulp-apidoc'),
+    mocha = require('gulp-mocha'),
+    jsdoc = require('gulp-jsdoc3');
+
+/**
+* Lint Checker
+*/
+gulp.task('lint', function () {
+   gulp.src('./**/*.js')
+      .pipe(jshint())
+});
+
+/**
+* Run Mocha Tests
+*/
+gulp.task('mocha', function() {
+   gulp.src('test/*.js', {read: false})
+      .pipe(mocha({reporter: 'nyan'}))
+});
+
+/**
+* Run documentation generator
+*/
+gulp.task('doc', function (cb) {
+  var config = require('./jsdoc.json');
+  gulp.src([], {read: false})
+    .pipe(jsdoc(config, cb))
+});
+
+gulp.task('default', ['lint', 'mocha', 'doc']);
+</code></pre>
+        </article>
+    </section>
 
 
 

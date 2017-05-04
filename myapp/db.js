@@ -1,3 +1,8 @@
+/**
+ * Establish mongo connection to db
+ * @module db
+ */
+
 var mongoose = require('mongoose');
 var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
 

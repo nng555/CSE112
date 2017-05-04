@@ -4,9 +4,9 @@
     "dictionaries": ["jsdoc"]
   },
   "source": {
-    "include": ["routes", "static/js", "test"],
+    "include": ["routes", "static/js", "test", "app.js", "db.js", "gulpfile.js"],
     "includePattern": ".js$",
-    "excludePattern": "(node_modules/|docs)"
+    "excludePattern": "(node_modules/|docs/|views/)"
   },
   "plugins": [
     "plugins/markdown"
