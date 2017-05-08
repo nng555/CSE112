@@ -5,26 +5,26 @@
 
   <testsuite name="test"
     errors="0" failures="0" hostname="" id="" package="test" skipped="0"
-    tests="4" time="16.84" timestamp="Mon, 08 May 2017 02:45:27 GMT">
+    tests="4" time="17.71" timestamp="Mon, 08 May 2017 02:58:34 GMT">
   
-    <testcase name="Step 1: Valid" classname="test" time="7.526" assertions="2">
+    <testcase name="Step 1: Valid" classname="test" time="8.396" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="Step 2: Not Valid" classname="test" time="2.190" assertions="1">
+    <testcase name="Step 2: Not Valid" classname="test" time="2.240" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Step 3: Not Valid Length" classname="test" time="2.210" assertions="1">
+    <testcase name="Step 3: Not Valid Length" classname="test" time="2.195" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Step 4: change format" classname="test" time="4.917" assertions="6">
+    <testcase name="Step 4: change format" classname="test" time="4.884" assertions="6">
 
     
 
