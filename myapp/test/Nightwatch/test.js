@@ -24,7 +24,6 @@ module.exports = {
       .getAlertText(function(result) {
           text = result.value;
           browser.assert.equal(true,text.includes('Contact Name cannot'));
-          console.log('help')
       })
       .pause(1000)
       .acceptAlert()
@@ -43,7 +42,7 @@ module.exports = {
       .acceptAlert()
       .clearValue('input[type=text')
   },
-  'Step 3: change format' : function(browser) {
+  'Step 4: change format' : function(browser) {
     browser
       .click('button[id=change-format')
       .waitForElementVisible('input[name=inputChar]',1000)
@@ -63,6 +62,7 @@ module.exports = {
         }
       })
       .acceptAlert()
+      .pause(2000)
       .setValue('input[type=text]', 'hello')
       .click('button[id=submit]')
       .getAlertText(function(result) {
@@ -70,6 +70,7 @@ module.exports = {
           browser.assert.equal(true,text.includes('Contact Name cannot'));
       })
       .acceptAlert()
+      console.log('Changing back format to default')
       .click('button[id=change-format')
       .waitForElementVisible('input[name=inputChar]',1000)
       .waitForElementVisible('input[name=inputNum]',1000)
