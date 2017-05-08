@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="4">
+
+  <testsuite name="test"
+    errors="1" failures="0" hostname="" id="" package="test" skipped="0"
+    tests="4" time="11.28" timestamp="Mon, 08 May 2017 02:20:53 GMT">
+  
+    <testcase name="Step 1: Valid" classname="test" time="5.044" assertions="2">
+
+    
+
+    
+    </testcase>
+      <system-err>
+          Error while running [Test / Step 3: change format]:
+
+  TypeError: text.includes is not a function
+    at Object.&lt;anonymous&gt; (/Users/icehism/MEGAsync/Code/CSE112/myapp/test/Nightwatch/test.js:58:42)
+    at HttpRequest.&lt;anonymous&gt; (/usr/local/lib/node_modules/nightwatch/lib/index.js:366:18)
+    at emitTwo (events.js:106:13)
+    at HttpRequest.emit (events.js:194:7)
+    at HttpRequest.&lt;anonymous&gt; (/usr/local/lib/node_modules/nightwatch/lib/index.js:382:15)
+    at emitThree (events.js:116:13)
+    at HttpRequest.emit (events.js:197:7)
+    at IncomingMessage.&lt;anonymous&gt; (/usr/local/lib/node_modules/nightwatch/lib/http/request.js:166:16)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+      </system-err>
+  
+    <testcase name="Step 2: Not Valid" classname="test" time="2.182" assertions="1">
+
+    
+    </testcase>
+      <system-err>
+          Error while running [Test / Step 3: change format]:
+
+  TypeError: text.includes is not a function
+    at Object.&lt;anonymous&gt; (/Users/icehism/MEGAsync/Code/CSE112/myapp/test/Nightwatch/test.js:58:42)
+    at HttpRequest.&lt;anonymous&gt; (/usr/local/lib/node_modules/nightwatch/lib/index.js:366:18)
+    at emitTwo (events.js:106:13)
+    at HttpRequest.emit (events.js:194:7)
+    at HttpRequest.&lt;anonymous&gt; (/usr/local/lib/node_modules/nightwatch/lib/index.js:382:15)
+    at emitThree (events.js:116:13)
+    at HttpRequest.emit (events.js:197:7)
+    at IncomingMessage.&lt;anonymous&gt; (/usr/local/lib/node_modules/nightwatch/lib/http/request.js:166:16)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+      </system-err>
+  
+    <testcase name="Step 3: Not Valid Length" classname="test" time="2.222" assertions="1">
+
+    
+    </testcase>
+      <system-err>
+          Error while running [Test / Step 3: change format]:
+
+  TypeError: text.includes is not a function
+    at Object.&lt;anonymous&gt; (/Users/icehism/MEGAsync/Code/CSE112/myapp/test/Nightwatch/test.js:58:42)
+    at HttpRequest.&lt;anonymous&gt; (/usr/local/lib/node_modules/nightwatch/lib/index.js:366:18)
+    at emitTwo (events.js:106:13)
+    at HttpRequest.emit (events.js:194:7)
+    at HttpRequest.&lt;anonymous&gt; (/usr/local/lib/node_modules/nightwatch/lib/index.js:382:15)
+    at emitThree (events.js:116:13)
+    at HttpRequest.emit (events.js:197:7)
+    at IncomingMessage.&lt;anonymous&gt; (/usr/local/lib/node_modules/nightwatch/lib/http/request.js:166:16)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+      </system-err>
+  
+    <testcase name="Step 3: change format" classname="test" time="1.836" assertions="2">
+
+    
+
+    
+    </testcase>
+      <system-err>
+          Error while running [Test / Step 3: change format]:
+
+  TypeError: text.includes is not a function
+    at Object.&lt;anonymous&gt; (/Users/icehism/MEGAsync/Code/CSE112/myapp/test/Nightwatch/test.js:58:42)
+    at HttpRequest.&lt;anonymous&gt; (/usr/local/lib/node_modules/nightwatch/lib/index.js:366:18)
+    at emitTwo (events.js:106:13)
+    at HttpRequest.emit (events.js:194:7)
+    at HttpRequest.&lt;anonymous&gt; (/usr/local/lib/node_modules/nightwatch/lib/index.js:382:15)
+    at emitThree (events.js:116:13)
+    at HttpRequest.emit (events.js:197:7)
+    at IncomingMessage.&lt;anonymous&gt; (/usr/local/lib/node_modules/nightwatch/lib/http/request.js:166:16)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+      </system-err>
+  
+  
+  </testsuite>
+</testsuites>

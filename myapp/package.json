@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=dev && node ./bin/www",
-    "test": "mocha"
+    "test": "mocha && nightwatch"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
@@ -28,6 +28,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "3.0.0",
-    "mocha": "~3.2.0"
+    "chromedriver": "^2.29.0",
+    "mocha": "~3.2.0",
+    "nightwatch": "^0.9.15"
   }
 }

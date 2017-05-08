@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="4">
+
+  <testsuite name="test"
+    errors="1" failures="0" hostname="" id="" package="test" skipped="3"
+    tests="4" time="0.006000" timestamp="Mon, 08 May 2017 00:52:45 GMT">
+  
+    <testcase name="Step 1: Valid" classname="test" time="0.006000" assertions="0">
+    </testcase>
+      <system-err>
+          Error while running [Test / Step 1: Valid]:
+
+  ReferenceError: driver is not defined
+    at Object.Step 1: Valid (/Users/icehism/MEGAsync/Code/CSE112/myapp/test/Nightwatch/test.js:9:22)
+    at Module.call (/usr/local/lib/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /usr/local/lib/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/usr/local/lib/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/usr/local/lib/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/usr/local/lib/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /usr/local/lib/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/usr/local/lib/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/usr/local/lib/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+      </system-err>
+  
+  
+    
+    <testcase
+      name="Step 2: Not Valid" classname="test">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Step 3: Not Valid Length" classname="test">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Step 3: change format" classname="test">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>
