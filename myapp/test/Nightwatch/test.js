@@ -71,7 +71,7 @@ module.exports = {
       })
       .acceptAlert()
       console.log('Changing back format to default')
-      .click('button[id=change-format')
+      browser.click('button[id=change-format')
       .waitForElementVisible('input[name=inputChar]',1000)
       .waitForElementVisible('input[name=inputNum]',1000)
       .clearValue('input[name=inputChar')
