@@ -1,0 +1,65 @@
+#sidebar {
+  width: 230px;
+  border-right: 5px solid rgba(255, 255, 255, .2);
+  min-height: 100vh;
+  background-color: #2f323a;
+}
+
+#sidebar > .menu > li {
+  padding-left: 30px;
+  text-align: left;
+}
+
+#sidebar > .menu > li > span {
+  display: inline;
+}
+
+/* Sidebar text */
+#sidebar > .menu > li > a {
+  color: #eeeeee;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 20px 0;
+}
+
+.top-bar > .menu {
+  background: #fff;
+}
+
+.top-bar > a {
+  color: #2f323a;
+}
+
+.top-bar > .search {
+  border: none;
+  background: #f4f5f7;
+  color: #2f323a;
+  width: 213px;
+  height: 33px;
+  padding-left: 10px;
+  box-shadow: none;
+}
+
+.position-left.reveal-for-medium ~ .off-canvas-content{
+  margin-left: 230px;
+}
+
+.dash-body {
+  margin-top: 10px;
+}
+
+.dash-body > .row {
+  height: 275px;
+}
+
+.dash-body > .row > .columns {
+  height: 100%;
+}
+
+.dash-body > .row > .columns > .card {
+  height: 90%;
+  width: 100%;
+  background-color: gray;
+}
